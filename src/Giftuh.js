@@ -43,7 +43,7 @@ export default class Giftuh {
           this.consoleLogYellow(`URL: ${media_url}`)
 
           // Set subfolder path where to save images
-          var path = `./src/giftuh/downloaded_images/${project_id}/${keyword}`
+          var path = `${__dirname}/giftuh/downloaded_images/${project_id}/${keyword}`
 
           // Create subfolder if not exist
           mkdirp(path, function (err) {

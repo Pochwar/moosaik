@@ -20,7 +20,7 @@ export default class Server {
     this._app.set('views', path.join(__dirname, '../src/views/'));
 
     // set app port
-    this.port = process.env.PORT || 2440;
+    this.port = 2440;
 
     // Routes
     const controller = new Controller()
