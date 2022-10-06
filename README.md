@@ -72,3 +72,4 @@ OR
 - Update Twitter package and check potential issues with path when downloading files (use ${__dirname})
 
 - Refacto with TypeScript
+- Make a beautiful front with Vue (or Svelte? or Qwik?)
