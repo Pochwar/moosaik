@@ -3,6 +3,7 @@ import download from 'image-downloader'
 import mkdirp from 'mkdirp'
 import fs from 'fs'
 import ContributionRepository from 'repositories/ContributionRepository'
+import getDateTime from './utils';
 
 import conf from 'config'
 
@@ -36,6 +37,7 @@ export default class Giftuh {
           var media_url = event.entities.media[0].media_url
           var media_id = event.entities.media[0].id_str
           this.consoleLog('########################################')
+          this.consoleLog(getDateTime())
           this.consoleLog(`New result found for keyword: ${keyword}`)
           this.consoleLog(`User ID: ${user_id}`)
           this.consoleLog(`User name: @${user_name}`)
