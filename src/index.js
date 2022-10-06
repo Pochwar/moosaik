@@ -5,6 +5,7 @@ import Metapixel from 'Metapixel'
 import Giftuh from 'Giftuh'
 import ProjectRepository from 'repositories/ProjectRepository'
 import defaultProject from 'seed/project'
+import getDateTime from './utils';
 
 // Configuration
 import conf from 'config'
@@ -13,6 +14,7 @@ import conf from 'config'
 const dbConnector = new DBConnector()
 dbConnector.connect()
   .then(async msg => {
+    console.log(getDateTime());
     console.log(msg)
 
     // get project
@@ -21,7 +23,7 @@ dbConnector.connect()
 
     // Create default project if none
     if (project == undefined) {
-      console.log('Create initial default project')
+      console.log('Create initial default project');
       project = await projectRepository.createProject(defaultProject)
     }
 

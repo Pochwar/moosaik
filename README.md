@@ -71,5 +71,9 @@ Heroku logs are available with this command: `heroku logs --tail -a {your-app-na
 OR
 - Update Twitter package and check potential issues with path when downloading files (use ${__dirname})
 
+- prevent Mtpx to run if already running
+
 - Refacto with TypeScript
 - Make a beautiful front with Vue (or Svelte? or Qwik?)
+
+- Decouple server / Metapixel / Giftuh
