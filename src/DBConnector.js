@@ -1,4 +1,4 @@
-import Mongoose from 'mongoose'
+import mongoose from 'mongoose'
 import _ from 'lodash'
 import conf from 'config'
 
@@ -11,7 +11,7 @@ export default class DBConnector {
       port:conf.db_port,
       database:conf.db_name
     }
-    this.mongoose = Mongoose
+    this.mongoose = mongoose
     if (conf.app_debug == '1') {
       console.log('DB debug mode ON')
       this.mongoose.set('debug', true)
@@ -20,16 +20,17 @@ export default class DBConnector {
 
   connect() {
     return new Promise((resolve, reject) => {
-      Mongoose.Promise = global.Promise;
+      mongoose.Promise = global.Promise;
       let dbCredentials = '';
       if(!_.isEmpty(this.conf.user)) {
         dbCredentials = this.conf.user + ':' + this.conf.password + '@'
       }
       this.mongoose.connect(
-        `mongodb://${dbCredentials}${this.conf.host}:${this.conf.port}/${this.conf.database}`,
+        `mongodb://${dbCredentials}${this.conf.host}:${this.conf.port}/${this.conf.database}?authSource=admin`,
         {
           useNewUrlParser: true,
-          useCreateIndex: true
+          useCreateIndex: true,
+          useUnifiedTopology: true,
         },
         err => {
           if(err)
